@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.cope_text {
+	overflow: hidden;
+	line-height: 20px;
+}
+.cope_text p {
+	margin: 0 0 0 0;
+}
+.line-clamp {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.custom-card:hover{
+    box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important
+}
