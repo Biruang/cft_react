@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './problemListStyle';
 import Card from './Card/card';
-import problems from './problems';
+import problems from './problems'
 import SingleProblem from './SingleProblem/singleProblem'
 
 class ProblemList extends Component {
@@ -11,7 +11,19 @@ class ProblemList extends Component {
         this.state = {
             SingleId: null,
             isSettings: false,
-            login: this.props.login
+            login: this.props.login,
+            problemList: []
+        }
+    }
+
+    getProblems() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", 'http://52.233.199.97:1488/get_problems', true);
+        xhr.send();
+        xhr.onload = () => {
+            this.setState({
+                problemList: JSON.parse(xhr.responseText)
+            })
         }
     }
 
@@ -30,7 +42,7 @@ class ProblemList extends Component {
                     key={element._id}
                     _id={element._id}
                     cardTitle={element.problem_title}
-                    cardText={element.problem_descrition}
+                    cardText={element.problem_description}
                     coins={element.coins}
                     setSingleId = {this.setSingleId}
                     login = {this.state.login}
@@ -45,7 +57,7 @@ class ProblemList extends Component {
                         key={element._id}
                         _id={element._id}
                         cardTitle={element.problem_title}
-                        cardText={element.problem_descrition}
+                        cardText={element.problem_description}
                         coins={element.coins}
                         setSingleId = {this.setSingleId}
                         login = {this.state.login}
@@ -57,6 +69,7 @@ class ProblemList extends Component {
     }
 
     render(){
+        this.getProblems()
         return(
             <div className="container" style={style.Container}>
                 {this.fill(problems)}

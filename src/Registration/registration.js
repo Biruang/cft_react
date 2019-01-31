@@ -11,14 +11,12 @@ class Registration extends Component {
     }
 
     onFormSubmit = event => {
-        //var target = event.target
+        var xhr = new XMLHttpRequest();
         event.preventDefault()
         var url = 'http://52.233.199.97:1488/reg?login='+ this.state.login +'&password=' + this.state.password
-        fetch(url).then(
-            response => {
-                console.log(response)
-            }
-        )
+        xhr.open("GET", url);
+        xhr.send();
+        this.props.setRegistration(false)
     }
 
     onLoginChange = event => {
@@ -47,10 +45,6 @@ class Registration extends Component {
                   <div className="form-group">
                     <label>Login:</label>
                     <input className="form-control shadow-sm" type="text" onChange={this.onLoginChange}  placeholder="Login" aria-describedby="helpId" required />
-                  </div>
-                  <div className="form-group">
-                    <label>Email:</label>
-                    <input className="form-control shadow-sm" type="email" placeholder="Email" aria-describedby="helpId" />
                   </div>
                   <div className="form-group">
                     <label>Password:</label>

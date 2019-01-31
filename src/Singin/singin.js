@@ -11,15 +11,33 @@ class Singin extends Component {
     }
 
     onFormSubmit = event => {
-        //var target = event.target
         event.preventDefault()
         var url = 'http://52.233.199.97:1488/login?login='+ this.state.login +'&password=' + this.state.password
-        this.props.setLogin(this.state.login)
-        fetch(url).then(
-            response => {
-                console.log(response)
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onload = () => {
+            var json = JSON.parse(xhr.responseText)
+            console.log(json.auth)
+            if (json.auth === 'ok'){
+                this.props.setLogin(this.state.login)
+                this.getUserCarma(this.state.coins)
+                console.log(json)
             }
-        )
+        }
+    }
+
+    getUserCarma(login) {
+        var url = 'http://52.233.199.97:1488/user?login=' + login
+        var json  
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onload = () => { 
+            json = JSON.parse(xhr.responseText)
+            this.props.setCoins(json.coins)
+            console.log(json)
+        }
     }
 
     onLoginChange = event => {

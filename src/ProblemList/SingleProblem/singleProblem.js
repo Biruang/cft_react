@@ -22,7 +22,7 @@ class SingleProblem extends Component {
 
     render(){
         return(
-            <div className="container" style={style.Container}>
+            <div className="container-fluid" style={style.Container}>
                 <div className="card text-left m-2 shadow custom-card" onClick={this.cardClick} id={this.props._id}>
                     <div className="card-body">
                         <h3 className="card-title">{this.props.cardTitle}</h3> 
