@@ -58,7 +58,7 @@ class Singin extends Component {
 
     render(){
         return(
-            <div className="container w-25" style={style.Container}>
+            <div className="container col-xl-2" style={style.Container}>
                 <form className="col-12 rounded border p-4 m-3 shadow-lg" onSubmit={this.onFormSubmit}>
                 <div className="form-group">
                     <h2 className="p-2">Please sign in</h2>

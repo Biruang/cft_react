@@ -7,14 +7,12 @@ import ProblemList from './ProblemList/problemList'
 import CreateCard from './CreateCard/createCard'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      login: true,
+ 
+  state = {
+      login: null,
       carma: null,
       onRegistration: false,
-      display: 'add'
-    }
+      display: 'list'
   }
 
   setLogin = state => {
