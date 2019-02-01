@@ -13,7 +13,7 @@ class Registration extends Component {
     onFormSubmit = event => {
         var xhr = new XMLHttpRequest();
         event.preventDefault()
-        var url = 'http://52.233.199.97:1488/reg?login='+ this.state.login +'&password=' + this.state.password
+        var url = ' http://104.211.23.214:1488/reg?login='+ this.state.login +'&password=' + this.state.password
         xhr.open("GET", url);
         xhr.send();
         this.props.setRegistration(false)
@@ -44,12 +44,12 @@ class Registration extends Component {
                   </div>
                   <div className="form-group">
                     <label>Login:</label>
-                    <input className="form-control shadow-sm" type="text" onChange={this.onLoginChange}  placeholder="Login" aria-describedby="helpId" required />
+                    <input className="form-control shadow-sm" type="text" onChange={this.onLoginChange}  placeholder="Login" required />
                   </div>
                   <div className="form-group">
                     <label>Password:</label>
-                    <input className="form-control shadow-sm" type="password" onChange={this.onPasswordChange}  placeholder="Password" aria-describedby="helpId" required />
-                    <input className="form-control shadow-sm" type="password"  placeholder="Repeat password" aria-describedby="helpId" required />
+                    <input className="form-control shadow-sm" type="password" onChange={this.onPasswordChange}  placeholder="Password" required />
+                    <input className="form-control shadow-sm" type="password"  placeholder="Repeat password" required />
                   </div>
                   <div onClick={this.backToLoginClick}>Already have account?</div>
                   <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

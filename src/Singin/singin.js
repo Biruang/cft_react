@@ -12,7 +12,7 @@ class Singin extends Component {
 
     onFormSubmit = event => {
         event.preventDefault()
-        var url = 'http://52.233.199.97:1488/login?login='+ this.state.login +'&password=' + this.state.password
+        var url = ' http://104.211.23.214:1488/login?login='+ this.state.login +'&password=' + this.state.password
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.send();
@@ -21,22 +21,20 @@ class Singin extends Component {
             console.log(json.auth)
             if (json.auth === 'ok'){
                 this.props.setLogin(this.state.login)
-                this.getUserCarma(this.state.coins)
-                console.log(json)
+                this.getUserCarma(this.state.login)
             }
         }
     }
 
     getUserCarma(login) {
-        var url = 'http://52.233.199.97:1488/user?login=' + login
-        var json  
+        var url = ' http://104.211.23.214:1488/user?login=' + login
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.send();
         xhr.onload = () => { 
-            json = JSON.parse(xhr.responseText)
-            this.props.setCoins(json.coins)
-            console.log(json)
+            var json = JSON.parse(xhr.responseText)
+            this.props.setCarma(json.coins)
+            console.log(json.coins)
         }
     }
 
@@ -58,7 +56,7 @@ class Singin extends Component {
 
     render(){
         return(
-            <div className="container col-xl-2" style={style.Container}>
+            <div className="container col-xl-2 col-10 col-sm-10 col-md-6 col-lg-6" style={style.Container}>
                 <form className="col-12 rounded border p-4 m-3 shadow-lg" onSubmit={this.onFormSubmit}>
                 <div className="form-group">
                     <h2 className="p-2">Please sign in</h2>

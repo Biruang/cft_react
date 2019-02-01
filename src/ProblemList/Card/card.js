@@ -18,12 +18,15 @@ class Card extends Component {
     }
 
     onBtnClick = () =>{
-        var url = "http://52.233.199.97:1488/decide_task?extend=" + this.props.login + "&problem_title=" + this.props.cardTitle
-        fetch(url).then(
-            response => {
-                console.log(response)
-            }
-        ).catch(Error)
+        var url = "http://104.211.23.214:1488/decide_task?extend=" + this.props.login + "&problem_title=" + this.props.cardTitle
+        var xhr = new XMLHttpRequest();
+        console.log(url)
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onload = () => {
+            var json = JSON.parse(xhr.responseText)
+            console.log(json)
+        }
     }
 
     render(){

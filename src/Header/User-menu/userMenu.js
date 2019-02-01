@@ -5,7 +5,7 @@ class UserMenu extends Component {
         super(props)
         this.state = {
             login : this.props.login,
-            carma : this.props.carma
+            coins : this.props.coins
         }
     }
 
@@ -24,10 +24,9 @@ class UserMenu extends Component {
     render() {
         return (
             <div className="UserMenu form-inline">
-                <h4 className="mr-sm-2">Carma:</h4>
-                <h4 id="Carma" className="mr-sm-4">0</h4>
+                <h4 className="mr-sm-2">Coins: {this.state.coins}</h4>
                 <div className="dropdown my-2 my-sm-0"></div>
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">{this.props.login}</button>
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">{this.state.login}</button>
                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <button className="dropdown-item" onClick={this.addBtn}>Add problem</button>
                     <button className="dropdown-item" onClick={this.settingsBtn}>Settings</button>

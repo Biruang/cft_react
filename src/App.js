@@ -37,16 +37,7 @@ class App extends Component {
     this.setState({
         display: state
     });
-}
-
-getProblems = () => {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", 'http://52.233.199.97:1488/get_problems', true);
-  xhr.send();
-  xhr.onload = () => {
-    JSON.parse(xhr.responseText)
   }
-}
 
   render() {
     if (this.state.onRegistration === true)
@@ -75,12 +66,12 @@ getProblems = () => {
       return(
         <div className="App">
           <Header setDisplay={this.setDisplay} login={this.state.login} carma={this.state.carma} setLogin={this.setLogin}/>
-          <CreateCard />
+          <CreateCard login={this.state.login} setDisplay={this.setDisplay} />
       </div>)
     }    
     return (
       <div className="App">
-        <Header setDisplay={this.setDisplay} login={this.state.login} carma={this.state.carma} setLogin={this.setLogin}/>
+        <Header setDisplay={this.setDisplay} login={this.state.login} coins={this.state.carma} setLogin={this.setLogin}/>
         <ProblemList login={this.state.login} display={this.state.display} getProblems={this.getProblems}/>
       </div>)
   }

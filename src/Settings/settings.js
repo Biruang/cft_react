@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './settingsStyle'
-const SETTING = 'setting'
+//const SETTING = 'setting'
 
 class Settings extends Component {
     render(){

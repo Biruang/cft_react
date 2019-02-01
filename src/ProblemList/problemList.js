@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './problemListStyle';
 import Card from './Card/card';
-import problems from './problems'
+//import problems from './problems'
 import SingleProblem from './SingleProblem/singleProblem'
 
 class ProblemList extends Component {
@@ -18,11 +18,12 @@ class ProblemList extends Component {
 
     getProblems() {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", 'http://52.233.199.97:1488/get_problems', true);
+        xhr.open("GET", 'http://104.211.23.214:1488/get_problems', true);
         xhr.send();
         xhr.onload = () => {
+            var json = JSON.parse(xhr.responseText)
             this.setState({
-                problemList: JSON.parse(xhr.responseText)
+                problemList: json
             })
         }
     }
@@ -72,7 +73,7 @@ class ProblemList extends Component {
         this.getProblems()
         return(
             <div className="container" style={style.Container}>
-                {this.fill(problems)}
+                {this.fill(this.state.problemList)}
             </div>
         );
     }
