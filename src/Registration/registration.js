@@ -51,8 +51,8 @@ class Registration extends Component {
                     <input className="form-control shadow-sm" type="password" onChange={this.onPasswordChange}  placeholder="Password" required />
                     <input className="form-control shadow-sm" type="password"  placeholder="Repeat password" required />
                   </div>
-                  <div onClick={this.backToLoginClick}>Already have account?</div>
-                  <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                  <div className="mb-3" onClick={this.backToLoginClick}>Already have account?</div>
+                  <button className="btn btn-lg btn-primary btn-block" type="submit">Create account</button>
                 </form>
             </div> 
         );

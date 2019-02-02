@@ -65,7 +65,7 @@ class Singin extends Component {
                     <input className="form-control" type="text" onChange={this.onLoginChange}  placeholder="Login" required autoFocus />
                     <input className="form-control" type="password" onChange={this.onPasswordChange}  placeholder="Password" required />
                 </div>
-                <div className="" onClick={this.regClick}>Register now</div>
+                <div className="mb-3" onClick={this.regClick}>Register now</div>
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 </form>
             </div> 
